@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skill Hunt - Discover & Share AI Agent Skills</title>
+  <meta name="description" content="A Product Hunt style registry for autonomous AI agent skills. Share, upvote, and comment on skills for Hermes, AGY, and other frameworks.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <div class="brand">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" width="24" height="24">
+            <path fill="currentColor" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z" />
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Skill Hunt</span>
+          <span class="brand-tagline">Discover the best agent skills</span>
+        </div>
+      </div>
+
+      <div class="search-bar">
+        <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18">
+          <path fill="currentColor" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+        </svg>
+        <input type="text" id="search-input" placeholder="Search skills by name, tag, or author...">
+      </div>
+
+      <div class="header-actions">
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme">
+          <!-- Sun Icon -->
+          <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20">
+            <path fill="currentColor" d="M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,2A1,1 0 0,1 13,3V5A1,1 0 0,1 11,5V3A1,1 0 0,1 12,2M12,19A1,1 0 0,1 13,20V22A1,1 0 0,1 11,22V20A1,1 0 0,1 12,19M22,12A1,1 0 0,1 21,13H19A1,1 0 0,1 19,11H21A1,1 0 0,1 22,12M5,12A1,1 0 0,1 4,13H2A1,1 0 0,1 2,11H4A1,1 0 0,1 5,12M18.36,5.64A1,1 0 0,1 18.36,7.05L16.95,8.46A1,1 0 0,1 15.54,7.05L16.95,5.64A1,1 0 0,1 18.36,5.64M8.46,15.54A1,1 0 0,1 8.46,16.95L7.05,18.36A1,1 0 0,1 5.64,16.95L7.05,15.54A1,1 0 0,1 8.46,15.54M18.36,18.36A1,1 0 0,1 16.95,18.36L15.54,16.95A1,1 0 0,1 16.95,15.54L18.36,16.95A1,1 0 0,1 18.36,18.36M8.46,8.46A1,1 0 0,1 7.05,8.46L5.64,7.05A1,1 0 0,1 7.05,5.64L8.46,7.05A1,1 0 0,1 8.46,8.46Z" />
+          </svg>
+          <!-- Moon Icon -->
+          <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" style="display: none;">
+            <path fill="currentColor" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4Z" />
+          </svg>
+        </button>
+        <button id="open-submit-btn" class="primary-btn">
+          <svg viewBox="0 0 24 24" width="16" height="16">
+            <path fill="currentColor" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+          </svg>
+          Submit Skill
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-container">
+    <!-- Category Navigation -->
+    <section class="category-nav-wrapper">
+      <div class="category-nav" id="category-filters">
+        <button class="cat-pill active" data-category="all">All Skills</button>
+        <button class="cat-pill" data-category="frontend">Frontend</button>
+        <button class="cat-pill" data-category="backend">Backend</button>
+        <button class="cat-pill" data-category="database">Database</button>
+        <button class="cat-pill" data-category="automation">Automation</button>
+        <button class="cat-pill" data-category="science">Science</button>
+        <button class="cat-pill" data-category="accessibility">Accessibility</button>
+      </div>
+    </section>
+
+    <!-- Layout Grid -->
+    <div class="content-grid">
+      <!-- Left Column: Feed -->
+      <section class="feed-section">
+        <div class="feed-header">
+          <h2 id="feed-title">Trending Today</h2>
+          <div class="feed-sorting">
+            <button id="sort-votes" class="sort-btn active">Popular</button>
+            <button id="sort-newest" class="sort-btn">Newest</button>
+          </div>
+        </div>
+
+        <div id="skills-list" class="skills-list">
+          <!-- Dynamically populated skills -->
+          <div class="loading-state">
+            <span class="spinner"></span>
+            Loading skills...
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: Sidebar -->
+      <aside class="sidebar-section">
+        <!-- Info Card -->
+        <div class="sidebar-card info-card">
+          <h3>What is a Skill?</h3>
+          <p>Skills are modular, executable prompt playbooks and scripts that empower AI agents like <strong>Hermes</strong> to master specific developer tasks. Add a skill to your project repository and see your agent run circles around complex workflows.</p>
+          <a href="https://github.com/NousResearch/hermes-agent" target="_blank" class="text-link">
+            Explore Hermes Agent Framework
+            <svg viewBox="0 0 24 24" width="14" height="14">
+              <path fill="currentColor" d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Leaderboard Card -->
+        <div class="sidebar-card leaderboard-card">
+          <h3>Top Hunters</h3>
+          <div class="leaderboard-list">
+            <div class="leaderboard-item">
+              <div class="hunter-rank">1</div>
+              <div class="hunter-avatar" style="background-color: #ff6154;">N</div>
+              <div class="hunter-info">
+                <span class="hunter-name">NousResearch</span>
+                <span class="hunter-meta">4 skills submitted</span>
+              </div>
+            </div>
+            <div class="leaderboard-item">
+              <div class="hunter-rank">2</div>
+              <div class="hunter-avatar" style="background-color: #3b82f6;">G</div>
+              <div class="hunter-info">
+                <span class="hunter-name">GoogleChrome</span>
+                <span class="hunter-meta">2 skills submitted</span>
+              </div>
+            </div>
+            <div class="leaderboard-item">
+              <div class="hunter-rank">3</div>
+              <div class="hunter-avatar" style="background-color: #10b981;">A</div>
+              <div class="hunter-info">
+                <span class="hunter-name">A11yAlliance</span>
+                <span class="hunter-meta">1 skill submitted</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resources Card -->
+        <div class="sidebar-card promo-card">
+          <div class="promo-content">
+            <span class="badge">PRO TIP</span>
+            <h4>Integrate with your IDE</h4>
+            <p>You can run any of these skills using the command line adapter in VS Code or Zed.</p>
+            <pre><code>hermes run &lt;skill-name&gt;</code></pre>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <p>© 2026 Skill Hunt. Built with 🍊 style for the AI Agent Community.</p>
+    </div>
+  </footer>
+
+  <!-- Skill Detail Modal -->
+  <dialog id="detail-modal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" id="close-detail-btn" aria-label="Close dialog">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+        </svg>
+      </button>
+      
+      <div class="modal-body" id="detail-modal-body">
+        <!-- Populated via Javascript -->
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Submit Skill Modal -->
+  <dialog id="submit-modal" class="modal">
+    <div class="modal-content submit-modal-content">
+      <button class="modal-close" id="close-submit-btn" aria-label="Close dialog">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+        </svg>
+      </button>
+
+      <h2>Submit a New Skill</h2>
+      <p class="modal-subtitle">Share an agent skill with the developer community.</p>
+
+      <form id="submit-skill-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="submit-name">Skill Name *</label>
+            <input type="text" id="submit-name" required placeholder="e.g. Chrome DevTools MCP">
+          </div>
+          <div class="form-group">
+            <label for="submit-author">Your Name / Organization *</label>
+            <input type="text" id="submit-author" required placeholder="e.g. NousResearch">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="submit-tagline">Short Tagline *</label>
+          <input type="text" id="submit-tagline" required placeholder="e.g. Automate and debug web pages directly in Chrome" max-length="120">
+          <span class="help-text">Clear, concise description shown on the homepage list.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="submit-description">Full Description *</label>
+          <textarea id="submit-description" required rows="4" placeholder="Describe the capabilities, installation steps, and what problems it solves for agents..."></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="submit-category">Primary Category *</label>
+            <select id="submit-category" required>
+              <option value="">Select Category</option>
+              <option value="Frontend">Frontend</option>
+              <option value="Backend">Backend</option>
+              <option value="Database">Database</option>
+              <option value="Automation">Automation</option>
+              <option value="Science">Science</option>
+              <option value="Accessibility">Accessibility</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="submit-github">GitHub Repository URL</label>
+            <input type="url" id="submit-github" placeholder="https://github.com/...">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="submit-tags">Sub-tags (comma-separated)</label>
+            <input type="text" id="submit-tags" placeholder="e.g. Testing, Puppeteer, Chrome">
+          </div>
+          <div class="form-group">
+            <label>Logo Icon Preview & Color</label>
+            <div class="logo-customizer">
+              <input type="text" id="submit-logo-text" value="SK" maxlength="3" placeholder="SK">
+              <input type="color" id="submit-logo-bg" value="#ff6154">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="secondary-btn" id="cancel-submit-btn">Cancel</button>
+          <button type="submit" class="primary-btn">Submit Skill</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- Script files -->
+  <script src="skills-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
